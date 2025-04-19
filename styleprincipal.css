@@ -1,44 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Chewy&family=Delius&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Fira+Code:wght@300..700&family=Meow+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Chewy&display=swap');
 
 #card {
-   height:500px;
-   width:800px;
-   margin:5em auto;
-   position: fixed;
-  top: -15px;
-   left: 25%;
-   display:flex;
-   visibility:hidden;
+   width: 90%;
+   max-width: 800px;
+   height: auto;
+   margin: 2em auto;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   visibility: hidden;
 }
+
 #card h2 {
-   font-size:3em;
-   margin:0;
-   color:pink;
+   font-size: 2em;
+   margin: 0;
+   color: pink;
    text-align: center;
 }
-#card p {
-   font-size: 1.5em;
-   text-align: justify;
-   padding-left: 30px; /* Espacio en blanco a la izquierda */
-   padding-right: 30px; /* Espacio en blanco a la derecha */
-}
 
+#card p {
+   font-size: 1em;
+   text-align: justify;
+   padding: 1em;
+}
 
 .side {
-   background:#eee;
-   height:550px;
-   width:400px;
-/*    border:1px solid red; */
-   padding:10px;
+   background: #eee;
+   width: 100%;
+   padding: 10px;
+   transform: none;
 }
-.side.one {
-   width:320px;
-   transform:skew(10deg,20deg);
-   background:linear-gradient(90deg, #fff, #fff 40%, #ddd);
-}
-.side.two {
-   transform:skew(10deg,-15deg);
-   background:linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+
+.side.one, .side.two {
+   background: linear-gradient(90deg, #fff, #f0f0f0);
 }
 
 body {
@@ -47,23 +42,39 @@ body {
    justify-content: center;
    height: 100vh;
    font-family: "Chewy", system-ui;
-   font-weight: 100;
    background-color: #ffd6f6;
    overflow: hidden;
    font-size: 9.6px;
- }
- 
- .valentines-day {
+}
+
+@media (min-width: 768px) {
+   #card {
+      flex-direction: row;
+   }
+
+   .side {
+      width: 50%;
+   }
+
+   .side.one {
+      transform: skew(10deg, 20deg);
+   }
+
+   .side.two {
+      transform: skew(10deg, -15deg);
+   }
+}
+
+/* Mantener estilos originales de sobre, corazón, etc. */
+.valentines-day {
    position: relative;
    cursor: pointer;
- }
- 
- .envelope {
+}
+.envelope {
    position: relative;
    filter: drop-shadow(0 0 25px rgba(0,0,0,.3));
- }
- 
- .envelope:before {
+}
+.envelope:before {
    content:"";
    position: absolute;
    width:254px;
@@ -73,9 +84,8 @@ body {
    border-radius: 0 15px 0 0;
    left:-37px;
    top:-82px;
- }
- 
- .envelope:after {
+}
+.envelope:after {
    content:"";
    position: absolute;
    background-color: #ff9494;
@@ -83,9 +93,8 @@ body {
    height:225px;
    left:-90px;
    top:45px;
- }
- 
- .heart {
+}
+.heart {
    position: relative;
    background-color: #e01911;
    display: inline-block;
@@ -96,26 +105,24 @@ body {
    width:180px;
    filter: drop-shadow(0 -10px 25px rgba(0,0,0,.3));
    transition: .5s;
- }
-   
- .heart:before, .heart:after {
+}
+.heart:before, .heart:after {
    content:"";
    background-color: #e01911;
    border-radius:50%;
    height: 180px;
    width: 180px;
    position: absolute;
-   }
-   
- .heart:before {
+}
+.heart:before {
    top:-100px;
-   left:0;}
-   
- .heart:after {
+   left:0;
+}
+.heart:after {
    left:100px;
-   top:0;}
- 
- .front {
+   top:0;
+}
+.front {
    position: absolute;
    width:0;
    height:0;
@@ -125,9 +132,8 @@ body {
    top:44px;
    left:80px;
    z-index:4;
- }
- 
- .front:before {
+}
+.front:before {
    content:"";
    position: absolute;
    width:0;
@@ -137,9 +143,8 @@ body {
    border-bottom: 113px solid transparent;
    top:-113px;
    left:-170px;
- }
- 
- .front:after {
+}
+.front:after {
    width:0;
    height:0;
    position: absolute;
@@ -149,9 +154,8 @@ body {
    border-left: 180px solid transparent;
    top:-36px;
    left:-170px;
- }
- 
- .text {
+}
+.text {
    position: absolute;
    font-family: arial;
    letter-spacing:5px;
@@ -161,18 +165,10 @@ body {
    top:80px;
    left:15px;
    transition: .5s;
- }
- 
- .valentines-day:hover .heart {
+}
+.valentines-day:hover .heart {
    transform: translateY(-50px) rotate(-45deg);
- }
- 
- .valentines-day:hover .text {
+}
+.valentines-day:hover .text {
    transform: translateY(-50px);
- }
- 
- 
-
-
-
- 
+}
